@@ -1,18 +1,5 @@
 <template>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 145">
-        <defs>
-            <style>
-                .cls-1 {
-                    fill: #fff;
-                }
-                .cls-2 {
-                    fill: none;
-                    stroke: #fff;
-                    stroke-miterlimit: 10;
-                    stroke-width: 4px;
-                }
-            </style>
-        </defs>
         <g id="Layer_2" data-name="Layer 2">
             <g id="Layer_1-2" data-name="Layer 1">
                 <rect width="352" height="145" />
@@ -101,4 +88,13 @@ export default {};
 </script>
 
 <style>
+.cls-1 {
+    fill: #fff;
+}
+.cls-2 {
+    fill: none;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    stroke-width: 4px;
+}
 </style>

@@ -1,14 +1,18 @@
 <template>
     <div>
+        <!--
         <div class="flex flex-col min-h-screen">
             <header>
                 <Header />
             </header>
-            <div class="flex-1 container mx-auto">
-                <slot />
-            </div>
+            -->
+        <div class="flex-1 container mx-auto">
+            <slot />
+        </div>
+        <!--
         </div>
         <footer><Footer /></footer>
+        -->
     </div>
 </template>
 
