@@ -8,11 +8,13 @@
                 lg:grid-cols-4
             "
         >
+            <!--
             <PortfolioItem
                 v-for="entry in $page.entries.edges"
                 :key="entry.node.id"
                 :entry="entry.node"
             ></PortfolioItem>
+            -->
         </div>
     </div>
 </template>
