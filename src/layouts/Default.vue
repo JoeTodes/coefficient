@@ -4,6 +4,7 @@
             <header>
                 <Header />
             </header>
+
             <div class="flex-1 container mx-auto">
                 <slot />
             </div>
@@ -19,3 +20,4 @@ export default {
     components: { Header, Footer },
 };
 </script>
+

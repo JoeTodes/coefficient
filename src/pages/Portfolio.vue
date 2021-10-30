@@ -8,6 +8,7 @@
                 lg:grid-cols-4
             "
         >
+            Portfolio goes here
             <!--
             <PortfolioItem
                 v-for="entry in $page.entries.edges"

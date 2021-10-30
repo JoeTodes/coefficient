@@ -1,6 +1,7 @@
 <template>
     <div>
         <NetlifyForm />
+        <p>Form goes here</p>
     </div>
 </template>
 
