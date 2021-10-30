@@ -43,7 +43,9 @@ export default {
         };
     },
     mounted() {
-        this.isMounted = true;
+        this.$nextTick(function () {
+            this.isMounted = true;
+        });
     },
 };
 </script>
