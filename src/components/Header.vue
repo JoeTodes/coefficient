@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white text-black h-28 pt-3 mb-16">
+    <div v-if="isMounted" class="bg-white text-black h-28 pt-3 mb-16">
         <div
             class="
                 flex
@@ -50,6 +50,7 @@ export default {
     components: { DesktopNav, MobileNav, Logo },
     data: function () {
         return {
+            isMounted: false,
             navs: {
                 Home: "/",
 
@@ -63,6 +64,11 @@ export default {
                 Contact: "/contact",
             },
         };
+    },
+    mounted() {
+        this.$nextTick(function () {
+            this.isMounted = true;
+        });
     },
 };
 </script>
