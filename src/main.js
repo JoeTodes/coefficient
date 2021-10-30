@@ -11,4 +11,8 @@ config.autoAddCss = false;
 library.add(faBars);
 export default function(Vue, { router, head, isClient }) {
 	Vue.component("font-awesome", FontAwesomeIcon);
+	head.link.push({
+		rel: "stylesheet",
+		href: "https://fonts.googleapis.com/css2?family=Nunito%20Sans",
+	});
 }

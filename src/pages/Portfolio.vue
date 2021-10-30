@@ -1,5 +1,6 @@
 <template>
     <div>
+        <div class="font-display text-5xl text-center">UNDER CONSTRUCTION</div>
         <div
             class="
                 grid grid-cols-1

@@ -1,10 +1,12 @@
 <template>
-    <div>
-        <font-awesome
-            :icon="['fas', 'bars']"
-            @click="isNavToggled = true"
-            size="2x"
-        ></font-awesome>
+    <div class="flex justify-end">
+        <transition name="slide-left" appear>
+            <font-awesome
+                :icon="['fas', 'bars']"
+                @click="isNavToggled = true"
+                size="2x"
+            ></font-awesome>
+        </transition>
         <transition name="fade" appear>
             <div
                 class="
@@ -74,5 +76,12 @@ export default {
 .fade-enter,
 .fade-leave-to {
     opacity: 0;
+}
+.slide-left-enter-active {
+    transition: all 1.5s ease 3s;
+}
+.slide-left-enter {
+    opacity: 0;
+    transform: translateX(20px);
 }
 </style>

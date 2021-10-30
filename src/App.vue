@@ -1,6 +1,8 @@
 <template>
     <MainLayout>
-        <router-view />
+        <transition name="content" appear appear-active-class="content-appear">
+            <router-view class="mx-4" />
+        </transition>
     </MainLayout>
 </template>
 
@@ -31,3 +33,20 @@ export default {
     },
 };
 </script>
+
+<style>
+.content-enter-active {
+    transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1) 1s;
+}
+.content-leave-active {
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+}
+.content-appear {
+    transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1) 3s;
+}
+.content-enter,
+.content-leave-to {
+    opacity: 0;
+    transform: translateY(20px);
+}
+</style>
