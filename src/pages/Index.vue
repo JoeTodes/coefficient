@@ -1,5 +1,7 @@
 <template>
-    <div class="font-display text-5xl text-center">UNDER CONSTRUCTION</div>
+    <div v-if="isMounted" class="font-display text-5xl text-center">
+        UNDER CONSTRUCTION
+    </div>
 </template>
 
 <script>
@@ -8,6 +10,16 @@ export default {
     components: { Logo },
     metaInfo: {
         title: "Home",
+    },
+    data() {
+        return {
+            isMounted: false,
+        };
+    },
+    mounted() {
+        this.$nextTick(function () {
+            this.isMounted = true;
+        });
     },
 };
 </script>
