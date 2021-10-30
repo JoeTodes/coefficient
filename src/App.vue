@@ -1,13 +1,15 @@
 <template>
-    <MainLayout>
-        <transition
-            name="content"
-            appear
-            appear-active-class="content-appear-enter-active"
-        >
-            <router-view class="mx-4" />
-        </transition>
-    </MainLayout>
+    <div v-if="isMounted">
+        <MainLayout>
+            <transition
+                name="content"
+                appear
+                appear-active-class="content-appear-enter-active"
+            >
+                <router-view class="mx-4" />
+            </transition>
+        </MainLayout>
+    </div>
 </template>
 
 <static-query>
@@ -23,6 +25,11 @@ query {
 import MainLayout from "~/layouts/Default.vue";
 export default {
     components: { MainLayout },
+    data() {
+        return {
+            isMounted: false,
+        };
+    },
     metaInfo() {
         return {
             title: this.$static.metadata.siteName,
@@ -34,6 +41,9 @@ export default {
                 },
             ],
         };
+    },
+    mounted() {
+        this.isMounted = true;
     },
 };
 </script>
