@@ -1,5 +1,16 @@
 module.exports = {
-	purge: ["./src/**/*.html", "./src/**/*.js", "./src/**/*.vue"],
+	purge: {
+		content: ["./src/**/*.html", "./src/**/*.js", "./src/**/*.vue"],
+		safelist: [
+			/enter$/,
+			/enter-to$/,
+			/leave$/,
+			/leave-to$/,
+			/leave-active$/,
+			/enter-active$/,
+			/move$/,
+		],
+	},
 	darkMode: false, // or 'media' or 'class'
 	theme: {
 		extend: {
