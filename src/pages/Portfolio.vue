@@ -1,5 +1,6 @@
 <template>
     <div>
+        <div class="font-display text-5xl text-center">UNDER CONSTRUCTION</div>
         <div
             class="
                 grid grid-cols-1
@@ -8,7 +9,6 @@
                 lg:grid-cols-4
             "
         >
-            Portfolio goes here
             <!--
             <PortfolioItem
                 v-for="entry in $page.entries.edges"

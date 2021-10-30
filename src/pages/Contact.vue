@@ -1,7 +1,7 @@
 <template>
     <div>
         <NetlifyForm />
-        <p>Form goes here</p>
+        <div class="font-display text-5xl text-center">UNDER CONSTRUCTION</div>
     </div>
 </template>
 
