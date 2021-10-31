@@ -1,5 +1,8 @@
 <template>
-    <div class="prose" v-html="$page.content.content"></div>
+    <div>
+        <!-- <div class="prose" v-html="$page.content.content"></div> -->
+        <div class="font-display text-5xl text-center">UNDER CONSTRUCTION</div>
+    </div>
 </template>
 
 <page-query>

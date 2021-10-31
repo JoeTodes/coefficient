@@ -3,27 +3,28 @@
         <a
             class="
                 shadow-lg
-                bg-gray-200
-                flex flex-col
-                h-full
+                bg-gray-100
+                flex flex-row
+                h-36
                 justify-center
                 items-center
-                px-4
-                pb-2
-                rounded-md
+                p-2
             "
             :href="entry.link"
             target="_blank"
             rel="noopener noreferrer"
         >
-            <div class="mb-2">{{ entry.title }}</div>
-            <img
-                class="object-cover h-36 w-36"
+            <g-image
+                class="h-full w-44 object-contain flex-none"
                 :src="entry.thumbnail"
                 onerror="this.src='/uploads/placeholder-square.jpg'"
             />
-            <div class="flex-grow"></div>
-            <div class="mt-2">{{ entry.description }}</div>
+            <div class="flex flex-col h-full px-2 font-sans justify-between">
+                <div class="font-bold text-lg underline">
+                    {{ entry.title }}
+                </div>
+                <div class="overflow-hidden">{{ entry.description }}</div>
+            </div>
         </a>
     </div>
 </template>

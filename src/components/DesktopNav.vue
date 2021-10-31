@@ -1,19 +1,21 @@
 <template>
     <div>
         <transition name="fade-underline">
-            <g-link
-                class="
-                    mx-3
-                    fade-underline
-                    font-display font-semibold
-                    align-bottom
-                    text-xl
-                "
-                v-for="(page, i) in Object.keys(navs)"
-                :key="i"
-                :to="navs[page]"
-                >{{ page }}</g-link
-            >
+            <div class="flex flex-row">
+                <g-link
+                    class="
+                        mx-3
+                        fade-underline
+                        font-display font-semibold
+                        align-bottom
+                        text-xl
+                    "
+                    v-for="(page, i) in Object.keys(navs)"
+                    :key="i"
+                    :to="navs[page]"
+                    >{{ page }}</g-link
+                >
+            </div>
         </transition>
     </div>
 </template>

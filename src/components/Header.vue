@@ -53,14 +53,17 @@ export default {
             isMounted: false,
             navs: {
                 Home: "/",
-
+                About: "/about",
                 Portfolio: "/portfolio",
+                Services: "/services",
                 Contact: "/contact",
             },
             leftNavs: {
+                About: "/about",
                 Portfolio: "/portfolio",
             },
             rightNavs: {
+                Services: "/services",
                 Contact: "/contact",
             },
         };

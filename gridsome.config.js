@@ -18,6 +18,13 @@ module.exports = {
 			},
 		},
 		{
+			use: "gridsome-plugin-netlify-cms-paths",
+			options: {
+				contentTypes: ["Portfolios", "Content", "Posts"],
+				coverField: "thumbnail",
+			},
+		},
+		{
 			use: "@gridsome/source-filesystem",
 			options: {
 				baseDir: "./cms/content",
