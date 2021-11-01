@@ -1,6 +1,8 @@
 <template>
     <div>
-        <div class="font-display text-5xl text-center">UNDER CONSTRUCTION</div>
+        <div class="font-display text-3xl sm:text-5xl text-center">
+            UNDER CONSTRUCTION
+        </div>
         <div class="flex flex-col">
             <PortfolioItem
                 v-for="entry in $page.entries.edges"
@@ -20,7 +22,7 @@ query{
                 id
                 title
                 link
-                thumbnail (width:176, quality:100)
+                thumbnail (width:500, quality:100)
                 description
             }
         }

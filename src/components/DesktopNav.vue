@@ -26,12 +26,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .fade-underline {
     text-decoration: underline solid transparent;
     transition: text-decoration 0.75s ease;
 }
-.active {
+.active--exact {
     text-decoration: underline solid black;
 }
 </style>

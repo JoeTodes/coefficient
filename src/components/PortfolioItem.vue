@@ -1,21 +1,31 @@
 <template>
-    <div class="mx-16 sm:mx-4 my-4">
+    <div class="mx-8 sm:mx-4 my-4">
         <a
             class="
                 shadow-lg
                 bg-gray-100
-                flex flex-row
-                h-36
+                flex flex-col
+                sm:flex-row sm:h-36
                 justify-center
                 items-center
                 p-2
+                text-center
+                sm:text-left
             "
             :href="entry.link"
             target="_blank"
             rel="noopener noreferrer"
         >
             <g-image
-                class="h-full w-44 object-contain flex-none"
+                class="
+                    w-full
+                    sm:h-full sm:w-40
+                    shadow-md
+                    object-contain
+                    flex-none
+                    mb-4
+                    sm:mb-0
+                "
                 :src="entry.thumbnail"
                 onerror="this.src='/uploads/placeholder-square.jpg'"
             />

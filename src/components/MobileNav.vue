@@ -48,7 +48,13 @@
                 >
                     <g-link
                         :to="navs[page]"
-                        class="text-black text-center hover:bg-white mx-auto"
+                        class="
+                            text-black
+                            no-underline
+                            text-center
+                            hover:bg-white
+                            mx-auto
+                        "
                         >{{ page }}</g-link
                     >
                 </div>
@@ -68,7 +74,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .fade-enter-active,
 .fade-leave-active {
     transition: opacity 1s ease-in-out;
@@ -83,5 +89,8 @@ export default {
 .slide-left-enter {
     opacity: 0;
     transform: translateX(20px);
+}
+.active--exact {
+    text-decoration: underline solid black;
 }
 </style>
