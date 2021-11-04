@@ -1,6 +1,10 @@
 <template>
     <transition name="fade" appear>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 145">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 352 145"
+        >
             <g id="Layer_2" data-name="Layer 2">
                 <g id="Layer_1-2" data-name="Layer 1">
                     <rect width="352" height="145" />
