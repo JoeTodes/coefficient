@@ -1,17 +1,21 @@
 <template>
     <div>
-        <!-- <div class="prose" v-html="$page.content.content"></div> -->
         <div class="font-display text-3xl sm:text-5xl text-center">
             UNDER CONSTRUCTION
         </div>
+        <div class="prose" v-html="$page.about.content"></div>
+        <div class="prose" v-html="$page.faq.content"></div>
     </div>
 </template>
 
 <page-query>
 query{ 
-	content(path: "/about/"){
-    content
-  } 
+    about: content(path:"/about/"){
+        content
+    }
+    faq: content(path:"/faq/"){
+        content
+    }
 }
 </page-query>
 

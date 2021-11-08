@@ -18,10 +18,14 @@
     "gridsome": "^0.7.0",
     "gridsome-plugin-netlify-cms": "^1.0.9",
     "gridsome-plugin-netlify-cms-paths": "^0.3.1",
-    "netlify-cms": "^2.10.174"
+    "netlify-cms": "^2.10.174",
+    "remark-definition-list": "^1.1.0"
   },
   "devDependencies": {
     "gridsome-plugin-tailwindcss": "^4.1.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+  },
+  "resolutions": {
+    "gridsome/webpack":"^4.46.0"
   }
 }

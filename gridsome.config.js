@@ -4,6 +4,10 @@ module.exports = {
 		remark: {
 			externalLinksTarget: "_blank",
 			externalLinksRel: ["nofollow", "noopener", "noreferrer"],
+
+			config: {
+				footnotes: true,
+			},
 		},
 	},
 	plugins: [
