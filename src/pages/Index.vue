@@ -1,28 +1,27 @@
 <template>
-    <div v-if="isMounted" class="font-display text-3xl sm:text-5xl text-center">
-        UNDER CONSTRUCTION
-    </div>
+  <div class="flex flex-col h-full">
+    <ProblemsSVG class="mx-auto"></ProblemsSVG>
+  </div>
 </template>
 
 <script>
-import Logo from "../components/Logo.vue";
+import ProblemsSVG from "../components/ProblemsSVG.vue";
 export default {
-    components: { Logo },
-    metaInfo: {
-        title: "Home",
-    },
-    data() {
-        return {
-            isMounted: false,
-        };
-    },
-    mounted() {
-        this.$nextTick(function () {
-            this.isMounted = true;
-        });
-    },
+  components: { ProblemsSVG },
+  metaInfo: {
+    title: "Home",
+  },
+  data() {
+    return {
+      isMounted: false,
+    };
+  },
+  mounted() {
+    this.$nextTick(function() {
+      this.isMounted = true;
+    });
+  },
 };
 </script>
 
-<style>
-</style>
+<style></style>
