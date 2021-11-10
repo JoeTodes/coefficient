@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="isMounted"
     class="flex flex-col relative items-center xl:items-start xl:flex-row justify-between"
   >
     <div class="prose text-justify" v-html="$page.services.content"></div>
@@ -22,8 +23,18 @@ query{
 </page-query>
 <script>
 export default {
+  data() {
+    return {
+      isMounted: false,
+    };
+  },
   metaInfo: {
     title: "Services",
+  },
+  mounted() {
+    this.$nextTick(function() {
+      this.isMounted = true;
+    });
   },
 };
 </script>

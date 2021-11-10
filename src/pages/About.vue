@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="isMounted">
     <div class="font-display text-3xl sm:text-5xl text-center">
       UNDER CONSTRUCTION
     </div>
@@ -18,8 +18,18 @@ query{
 
 <script>
 export default {
+  data() {
+    return {
+      isMounted: false,
+    };
+  },
   metaInfo: {
     title: "About",
+  },
+  mounted() {
+    this.$nextTick(function() {
+      this.isMounted = true;
+    });
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col h-full">
+  <div v-if="isMounted" class="flex flex-col h-full">
     <ProblemsSVG class="mx-auto"></ProblemsSVG>
   </div>
 </template>
