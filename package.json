@@ -14,6 +14,7 @@
     "@fortawesome/vue-fontawesome": "^2.0.6",
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.4",
+    "@tailwindcss/forms": "^0.3.4",
     "@tailwindcss/typography": "^0.4.1",
     "gridsome": "^0.7.0",
     "gridsome-plugin-netlify-cms": "^1.0.9",
@@ -26,6 +27,6 @@
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   },
   "resolutions": {
-    "gridsome/webpack":"^4.46.0"
+    "gridsome/webpack": "^4.46.0"
   }
 }

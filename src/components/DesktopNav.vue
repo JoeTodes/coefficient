@@ -1,37 +1,38 @@
 <template>
-    <div>
-        <transition name="fade-underline">
-            <div class="flex flex-row">
-                <g-link
-                    class="
+  <div>
+    <transition name="fade-underline">
+      <div class="flex flex-row">
+        <g-link
+          class="
                         mx-3
                         fade-underline
                         font-display font-semibold
                         align-bottom
                         text-xl
+                        hover:opacity-70
                     "
-                    v-for="(page, i) in Object.keys(navs)"
-                    :key="i"
-                    :to="navs[page]"
-                    >{{ page }}</g-link
-                >
-            </div>
-        </transition>
-    </div>
+          v-for="(page, i) in Object.keys(navs)"
+          :key="i"
+          :to="navs[page]"
+          >{{ page }}</g-link
+        >
+      </div>
+    </transition>
+  </div>
 </template>
 
 <script>
 export default {
-    props: { navs: {} },
+  props: { navs: {} },
 };
 </script>
 
 <style scoped>
 .fade-underline {
-    text-decoration: underline solid transparent;
-    transition: text-decoration 0.75s ease;
+  text-decoration: underline solid transparent;
+  transition: text-decoration 0.75s ease;
 }
 .active--exact {
-    text-decoration: underline solid black;
+  text-decoration: underline solid black;
 }
 </style>
