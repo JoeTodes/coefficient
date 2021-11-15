@@ -1,15 +1,12 @@
 <template>
-  <div v-if="isMounted">
-    <div class="font-display text-3xl sm:text-5xl text-center">
-      UNDER CONSTRUCTION
+    <div v-if="isMounted">
+        <div class="prose" v-html="$page.faq.content"></div>
     </div>
-    <div class="prose" v-html="$page.about.content"></div>
-  </div>
 </template>
 
 <page-query>
 query{ 
-    about: content(path:"/about/"){
+    faq: content(path:"/faq/"){
         content
     }
    
@@ -18,18 +15,26 @@ query{
 
 <script>
 export default {
-  data() {
-    return {
-      isMounted: false,
-    };
-  },
-  metaInfo: {
-    title: "About",
-  },
-  mounted() {
-    this.$nextTick(function() {
-      this.isMounted = true;
-    });
-  },
+    data() {
+        return {
+            isMounted: false,
+        };
+    },
+    metaInfo: {
+        title: "About",
+        meta: [
+            {
+                name: "description",
+                key: "description",
+                content:
+                    "Information about our web development services and frequently asked questions",
+            },
+        ],
+    },
+    mounted() {
+        this.$nextTick(function () {
+            this.isMounted = true;
+        });
+    },
 };
 </script>

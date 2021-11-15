@@ -14,7 +14,7 @@ Our pricing is as custom as the solutions we provide. Based on the complexity, r
 
 Simple, single or multi-page websites to advertize your business. These may include:
 
-- A [Content Management System (CMS)](#what-is-a-content-management-system-cms-and-does-my-website-need-one) for editing page content and/or blog or portfolio publishing
+- A [Content Management System (CMS)](/about/#what-is-a-content-management-system-cms-and-does-my-website-need-one) for editing page content and/or blog or portfolio publishing
 - A contact form for users to get in touch directly
 - Standard SEO best practices to make it easier for search engines to index your site
 - Free[^1] hosting

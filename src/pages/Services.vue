@@ -1,14 +1,7 @@
 <template>
-  <div
-    v-if="isMounted"
-    class="flex flex-col relative items-center xl:items-start xl:flex-row justify-between"
-  >
-    <div class="prose text-justify" v-html="$page.services.content"></div>
-    <div
-      class="bg-black h-px xl:absolute xl:left-1/2 xl:h-5/6 w-full xl:w-px mb-12 xl:mb-0"
-    ></div>
-    <div class="prose text-justify" v-html="$page.faq.content"></div>
-  </div>
+    <div v-if="isMounted" class="">
+        <div class="prose text-justify" v-html="$page.services.content"></div>
+    </div>
 </template>
 
 <page-query>
@@ -23,18 +16,26 @@ query{
 </page-query>
 <script>
 export default {
-  data() {
-    return {
-      isMounted: false,
-    };
-  },
-  metaInfo: {
-    title: "Services",
-  },
-  mounted() {
-    this.$nextTick(function() {
-      this.isMounted = true;
-    });
-  },
+    data() {
+        return {
+            isMounted: false,
+        };
+    },
+    metaInfo: {
+        title: "Services",
+        meta: [
+            {
+                name: "description",
+                key: "description",
+                content:
+                    "Pricing is as custom as our solutions, but most projects fall into one of three main categories",
+            },
+        ],
+    },
+    mounted() {
+        this.$nextTick(function () {
+            this.isMounted = true;
+        });
+    },
 };
 </script>
