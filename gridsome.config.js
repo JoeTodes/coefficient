@@ -11,12 +11,6 @@ module.exports = {
 		},
 	},
 	plugins: [
-		{
-			use: "@gridsome/plugin-google-analytics",
-			options: {
-				id: "G-NQ1EE23DRZ",
-			},
-		},
 		{ use: "gridsome-plugin-tailwindcss" },
 		{ use: "gridsome-plugin-netlify-cms" },
 		{
