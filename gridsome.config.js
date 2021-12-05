@@ -1,5 +1,6 @@
 module.exports = {
 	siteName: "coEfficient Solutions",
+	siteUrl: "https://coefficientsolutions.dev",
 	transformers: {
 		remark: {
 			externalLinksTarget: "_blank",
@@ -12,6 +13,7 @@ module.exports = {
 	},
 	plugins: [
 		{ use: "gridsome-plugin-tailwindcss" },
+		{ use: "@gridsome/plugin-sitemap" },
 		{ use: "gridsome-plugin-netlify-cms" },
 		{
 			use: "@gridsome/source-filesystem",
