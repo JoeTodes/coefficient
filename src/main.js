@@ -29,4 +29,10 @@ export default function(Vue, { router, head, isClient }) {
 		rel: "stylesheet",
 		href: "https://fonts.googleapis.com/css2?family=Nunito%20Sans",
 	});
+	router.afterEach((to, from) => {
+		if (process.isClient) {
+			gtag("set", "page_path", to);
+			gtag("event", "page_view");
+		}
+	});
 }
