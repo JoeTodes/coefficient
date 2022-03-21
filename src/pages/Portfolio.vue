@@ -1,16 +1,19 @@
 <template>
-    <div v-if="isMounted">
-        <div class="font-display text-3xl sm:text-5xl text-center">
-            UNDER CONSTRUCTION
-        </div>
-        <div class="flex flex-col">
-            <PortfolioItem
+	<div v-if="isMounted">
+		<div class="font-display text-3xl sm:text-5xl text-center">
+			UNDER CONSTRUCTION
+		</div>
+		<div class="flex flex-col">
+			<!--
+
+                <PortfolioItem
                 v-for="entry in $page.entries.edges"
                 :key="entry.node.id"
                 :entry="entry.node"
             ></PortfolioItem>
-        </div>
-    </div>
+            -->
+		</div>
+	</div>
 </template>
 
 <page-query>
@@ -32,29 +35,29 @@ query{
 <script>
 import PortfolioItem from "~/components/PortfolioItem.vue";
 export default {
-    data() {
-        return {
-            isMounted: false,
-        };
-    },
-    metaInfo: {
-        title: "Portfolio",
-        meta: [
-            {
-                name: "description",
-                key: "description",
-                content:
-                    "We love to share our work. Here is a sampling of some of our best",
-            },
-        ],
-    },
-    components: {
-        PortfolioItem,
-    },
-    mounted() {
-        this.$nextTick(function () {
-            this.isMounted = true;
-        });
-    },
+	data() {
+		return {
+			isMounted: false,
+		};
+	},
+	metaInfo: {
+		title: "Skills & Interests",
+		meta: [
+			{
+				name: "description",
+				key: "description",
+				content:
+					"We love to talk tech. Here is a sampling of some of our skills and interests",
+			},
+		],
+	},
+	components: {
+		PortfolioItem,
+	},
+	mounted() {
+		this.$nextTick(function() {
+			this.isMounted = true;
+		});
+	},
 };
 </script>
