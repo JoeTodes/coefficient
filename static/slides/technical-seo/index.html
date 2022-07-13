@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/solarized.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">
+
+# Technical SEO Gotchas
+## Easy To Fix Website Pitfalls
+### Joe Wilson
+### 2022
+</script></section><section  data-markdown><script type="text/template">
+### Topics
+
+1. &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Site Builders (Wix, Squarespace, etc.)
+1. &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Technical SEO
+1. &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Accessibility
+1. &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Fixing Technical SEO and Accessibility Issues in Site Builders
+</script></section><section ><section data-markdown><script type="text/template">
+### Site Builders
+
+**What makes them so useful?**
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Simplified Process
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Templates
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Editing Power
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Bundled Services
+</script></section><section data-markdown><script type="text/template">
+**On the other hand**
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Monthly Fee 
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Slow Loading Times
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->No Warnings for SEO Issues
+</script></section></section><section ><section data-markdown><script type="text/template">
+## SEO
+
+### Content <-------------> Structure<!-- .element: class="fragment fade-out" -->
+</script></section><section data-markdown><script type="text/template">
+### Technical SEO
+
+Content is King (or Queen)<!-- .element: class="fragment" -->
+
+But only if Google can find or interpret the content in the first place<!-- .element: class="fragment" -->
+
+We want to make our sites as easy as possible for Google's bots to understand<!-- .element: class="fragment" -->
+</script></section></section><section  data-markdown><script type="text/template">
+## Imagine...
+#### The most groundbreaking research paper was published<!-- .element: class="fragment" -->
+#### ... Without punctuation or white-space<!-- .element: class="fragment" -->
+
+<div class="fragment">
+systemswithdualmaterialcapabilitycanunlock
+interestingapplicationswhereflexibleandrigid
+materialsarecombinedwhenchemicallyincom
+patiblematerialsareconcernedtheadhesionb
+etweenthetwomightbeinsufficientthereforer
+esearcherstypicallyrelyondovetailtypeinterlo
+ckinggeometriesinordertoaffixtwobodiesme
+chanicallyhoweverdovetailtypeinterlockingin
+troducesextrusiondiscontinuitiesandrelieson
+thematerialsresistancetodeformationwhichis
+difficulttomodel
+</div>
+</script></section><section ><section data-markdown><script type="text/template">### Sidenote - Accessibility
+
+*the practice of ensuring there are no barriers that prevent access to, or interaction with, your website due to physical/situational disabilities and socio-economic internet speed/bandwidth restrictions*
+</script></section><section data-markdown><script type="text/template">
+**Accessibility on the web includes (but is not limited to)**
+-  Multiple modes of contrast to delineate information<!-- .element: class="fragment" -->
+- Responsive Design<!-- .element: class="fragment" -->
+	- Most page builders do a good job of this, but make sure you double check on a variety of screen sizes<!-- .element: class="fragment" -->
+- Semantic HTML<!-- .element: class="fragment" -->
+	- content is structured correctly so that screen readers and other assistive technologies can understand and interpret your site<!-- .element: class="fragment fade-in highlight-red" -->
+</script></section></section><section  data-markdown><script type="text/template">## Key Understanding
+
+Good Structural SEO **=** Good Accessibility
+</script></section><section  data-markdown><script type="text/template">### Web Crawlers
+
+<p style="line-height: 0" class="reset-paragraph image-paragraph"><img src="Pasted image 20220712204718.png" alt="" style="width: 700px"></img></p>
+
+
+</script></section><section  data-markdown><script type="text/template">
+<split even>
+<div>
+
+### What we see
+<iframe height="400px" srcdoc="
+<h1>Joe Wilson Therapy</h1>
+<h2>Definitely Not A Therapist</h2>
+<img width='100px' src='https://media.istockphoto.com/vectors/psychotherapy-line-icon-outline-symbol-vector-illustration-vector-id1308878876?k=20&m=1308878876&s=612x612&w=0&h=QbF_CRy3bTW16drYyo6x7kKKTwFFIXyZ0fsewRz7kbQ='></img>	
+<h2>My Focus</h2>
+<p>I'm just doing my best here!</p>
+<style>body{background-color: white}</style>
+"
+>
+</iframe>
+</div>
+<div>
+
+### What the bots see
+```html
+<h1>Joe Wilson Therapy</h1>
+<h2>Definitely Not A Therapist</h2>
+<img src="icon.png"
+	 alt="two people doing therapy">
+</img>
+<h2>My Focus</h2>
+<p>I'm just doing my best here!</p>
+```
+
+</div>
+</split></script></section><section  data-markdown><script type="text/template">
+## Key Understanding
+
+It is totally possible for a website to look visually interesting and function as intended without being structured nicely for the bots<!-- .element: class="fragment" -->
+
+And Squarespace often won't warn you if you accidentally cause this<!-- .element: class="fragment" -->
+
+</script></section><section  data-markdown><script type="text/template">
+## Technical SEO Topics for Today
+- Image Alt-Text <!-- .element: class="fragment" -->
+- Heading Level Hierarchy<!-- .element: class="fragment" -->
+- Meta Titles and Descriptions, maybe<!-- .element: class="fragment" -->
+</script></section><section ><section data-markdown><script type="text/template">
+## Image Alt-Text
+
+*"a textual substitute for non-text content in web pages"*<!-- .element: class="fragment" -->
+### SEO and Accessibility RULE ALERT!<!-- .element: class="fragment" --><!--element class="fragment highlight-red" -->
+
+All non-decorative images should have alt-text defined<!-- .element: class="fragment" -->
+
+
+</script></section><section data-markdown><script type="text/template">
+### Alt-Text Should Be
+- descriptive of the content of the image<!-- .element: class="fragment" -->
+- succinct<!-- .element: class="fragment" -->
+	- typically only a few words<!-- .element: class="fragment" -->
+- not redundant<!-- .element: class="fragment" -->
+	- don't use "image of..." or "picture of..." for example<!-- .element: class="fragment" -->
+</script></section><section data-markdown><script type="text/template">
+### In Squarespace
+
+<p style="line-height: 0" class="reset-paragraph image-paragraph"><img src="Pasted image 20220712220711.png" alt="" style="width: 500px" class="fragment"></img></p>
+
+</script></section></section><section  data-markdown><script type="text/template">
+<p style="line-height: 0" class="reset-paragraph image-paragraph"><img src="Pasted image 20220712220918.png" alt="" ></img></p>
+
+</script></section><section ><section data-markdown><script type="text/template">### Heading Level Hierarchy
+
+In the [earlier example](#/8) you may have notice some elements called `h1`, `h2`, `h3`, etc
+
+These are the Heading elements in HTML and are used to define the "hierarchical structure" of a webpage.<!-- .element: class="fragment" -->
+
+Think APA Formatting, or a table of contents<!-- .element: class="fragment" -->
+</script></section><section data-markdown><script type="text/template">### A Textbook Example
+- Heading 1: Title<!-- .element: class="fragment" -->
+	- Heading 2: Chapter Name
+		- Heading 3: Section Name
+			- Paragraphs: Content
+		- Heading 3: Section Name
+			- Paragraph: Content
+	- Heading 2: Chapter Name
+		- Heading 3: Section Name
+			- Paragraph: Content
+		- Heading 3: Section Name
+			- Paragraphs: Content
+</script></section><section data-markdown><script type="text/template">### SEO and Accessibility RULE ALERT! <!-- .element: class="fragment highlight-red" -->
+
+- ONE and only ONE Heading 1 per page<!-- .element: class="fragment" -->
+	- Should be the title of the page<!-- .element: class="fragment" -->
+- NO skipping levels<!-- .element: class="fragment" -->
+	- usually<!-- .element: class="fragment" -->
+- Heading level should be chosen based on the structure and purpose of the text<!-- .element: class="fragment" -->
+	- Not based on how they look<!-- .element: class="fragment" -->
+	- Looks can always be adjusted<!-- .element: class="fragment" -->
+		- Global Site Styles<!-- .element: class="fragment" -->
+		- Individual Change (Squarespace is somewhat limited)<!-- .element: class="fragment" -->
+
+</script></section><section data-markdown><script type="text/template">
+### In Squarespace
+<p style="line-height: 0" class="reset-paragraph image-paragraph"><img src="Pasted image 20220712223612.png" alt="" ></img></p>
+
+</script></section><section data-markdown><script type="text/template">
+### Global Style Settings
+<p style="line-height: 0" class="reset-paragraph image-paragraph"><img src="Pasted image 20220712230014.png" alt="" ></img></p>
+
+</script></section></section><section  data-markdown><script type="text/template">## Meta Titles and Descriptions</script></section><section ><section data-markdown><script type="text/template">### Meta Titles <!-- .element: class="fragment" -->
+Appears in the tab in most browsers<!-- .element: class="fragment" -->
+
+### Meta Descriptions<!-- .element: class="fragment" -->
+Text that is often shown below a page title in search engine results<!-- .element: class="fragment" -->
+</script></section><section data-markdown><script type="text/template">
+### SEO and Accessibility RULE ALERT! <!-- .element: class="fragment highlight-red" -->
+- Every page should have a Title and Description<!-- .element: class="fragment" -->
+- The Title is usually in the format "Page Name - Site Name" or similar<!-- .element: class="fragment" -->
+	- eg. About Us - Gray Jay Counselling<!-- .element: class="fragment" -->
+- Descriptions should be 50-300 characters and ideally different for each page<!-- .element: class="fragment" -->
+</script></section><section data-markdown><script type="text/template">
+### In Squarespace
+...yikes<!-- .element: class="fragment" --></script></section><section data-markdown><script type="text/template">
+### Site and Page Titles + Site Description
+<p style="line-height: 0" class="reset-paragraph image-paragraph"><img src="Pasted image 20220712231314.png" alt="" style="width: 700px"></img></p>
+</script></section><section data-markdown><script type="text/template">
+<p style="line-height: 0" class="reset-paragraph image-paragraph"><img src="Pasted image 20220712231428.png" alt="" style="width: 700px"></img></p>
+</script></section><section data-markdown><script type="text/template"><p style="line-height: 0" class="reset-paragraph image-paragraph"><img src="Pasted image 20220712231504.png" alt="" style="width: 700px"></img></p>
+</script></section><section data-markdown><script type="text/template"><p style="line-height: 0" class="reset-paragraph image-paragraph"><img src="Pasted image 20220712231520.png" alt="" style="width: 600px"></img></p>
+</script></section><section data-markdown><script type="text/template">### Page Descriptions
+<p style="line-height: 0" class="reset-paragraph image-paragraph"><img src="Pasted image 20220712231551.png" alt="" style="width: 700px"></img></p>
+</script></section><section data-markdown><script type="text/template"><p style="line-height: 0" class="reset-paragraph image-paragraph"><img src="Pasted image 20220712231617.png" alt="" ></img></p>
+</script></section><section data-markdown><script type="text/template"><p style="line-height: 0" class="reset-paragraph image-paragraph"><img src="Pasted image 20220712231657.png" alt="" ></img></p>
+
+</script></section></section><section  data-markdown><script type="text/template">### Quick Tip
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Use https://web.dev/measure/ to run your site through some standard audits
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->There may be some suggestions that you are able to fix in your site builder
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Don't worry about the Performance score
+	- Unreliable test<!-- .element: class="fragment" -->
+	- Not something you have much control over anyways<!-- .element: class="fragment" --></script></section><section  data-markdown><script type="text/template">
+### What Did We Learn?
+
+- There's more to SEO than just content<!-- .element: class="fragment" -->
+- How SEO and Accessibility are linked<!-- .element: class="fragment" -->
+- Some very common and easy to make mistakes that your site builder may not catch for you<!-- .element: class="fragment" -->
+	- Image Alt-Text<!-- .element: class="fragment" -->
+	- Heading Level Hierarchy<!-- .element: class="fragment" -->
+	- Meta Titles and Descriptions<!-- .element: class="fragment" -->
+- Maybe the real search engine optimization was the friends we made along the way<!-- .element: class="fragment" -->
+
+</script></section><section  data-markdown><script type="text/template">
+### Questions, Comments, Concerns?
+
+### Queries?<!-- .element: class="fragment" -->
+
+### Conundrums?<!-- .element: class="fragment" -->
+
+### Quizzes?<!-- .element: class="fragment" -->
+
+### Quibbles?<!-- .element: class="fragment" -->
+
+### Inquiries?<!-- .element: class="fragment" -->
+</script></section><section  data-markdown><script type="text/template">### Contact Me
+
+joe@coefficientsolutions.dev
+</script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+
+	if(isLight(bgColor)){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+        ],
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+
+		customcontrols: {
+			controls: [
+			]
+		},
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0.04,"controls":true,"progress":true,"slideNumber":false,"navigationMode":"grid","transition":"slide","transitionSpeed":"default"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>
